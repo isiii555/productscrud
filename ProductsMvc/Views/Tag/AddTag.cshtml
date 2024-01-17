@@ -1,0 +1,10 @@
+﻿@model TagViewModel
+<head>
+    <link rel="stylesheet" href="~/css/form.css" />
+</head>
+<div class="form-container">
+    <form asp-controller="Tag" asp-action="AddTag" method="post">
+        <input type="text" placeholder="name" asp-for="Name" /><span asp-validation-for="Name"></span>
+        <button>Add Tag</button>
+    </form>
+</div>

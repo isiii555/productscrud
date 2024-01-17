@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="~/css/site.css"/>
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li><a asp-controller="Product" asp-action="Index">Products</a></li>
+                <li><a asp-controller="Product" asp-action="AddProduct">Add Product</a></li>
+                <li><a asp-controller="Tag" asp-action="AddTag">Add Tag</a></li>
+                <li><a asp-controller="Category" asp-action="AddCategory">Add Category</a></li>
+            </ul>
+        </nav>
+        <main>
+            @RenderBody()
+        </main>
+    </body>
+</html>

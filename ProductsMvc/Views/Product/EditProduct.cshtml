@@ -1,0 +1,39 @@
+﻿@{
+    var tags = ViewData["tags"] as List<Tag>;
+
+    var categories = ViewData["categories"] as List<Category>;
+
+    var product = ViewData["product"] as Product;
+
+    List<int> tagIds = new();
+    foreach (var tag in product!.Tags!)
+    {
+        tagIds.Add(tag.Id);
+    }
+}
+
+@model ProductViewModel
+
+<div class="form-container">
+    <form enctype="multipart/form-data" asp-route-id = "@product.Id" asp-controller="Product" asp-action="EditProduct" method="post">
+        <input type="text" placeholder="name" asp-for="Name" value="@product!.Name">
+        <span asp-validation-for="Name"></span>
+
+        <input type="text" placeholder="description" value = "@product!.Description" asp-for="Description" />
+        <span asp-validation-for="Description"></span>
+
+        <input type="number" value = "@product!.Price" placeholder="price" asp-for="Price" />
+        <span asp-validation-for="Price"></span>
+
+        <select asp-for="TagIds" value = "@tagIds" multiple asp-items="new SelectList(tags,nameof(Tag.Id),nameof(Tag.Name))">
+        </select><span asp-validation-for="TagIds"></span>
+
+        <select asp-for="CategoryId" value = "@product!.Category!.Id" asp-items="new SelectList(categories,nameof(Category.Id),nameof(Category.Name))">
+
+        </select><span asp-validation-for="CategoryId"></span>
+        <input type="file" placeholder="image" value = "@product!.ImagePath" asp-for="Image" />
+        <span asp-validation-for="Image"></span>
+        <button>Edit Product</button>
+    </form>
+</div>
+

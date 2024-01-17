@@ -1,0 +1,28 @@
+﻿<div class="product-controller">
+    @{
+        var products = ViewData["products"] as List<Product>;
+    }
+    @if (products is not null)
+    {
+        @foreach (var product in products)
+        {
+            <div class="product-card">
+                <img src="~/@product.ImagePath" alt="@product.ImagePath">
+                <h3 class="product-name">@product.Name</h3>
+                <h4 class="product-description">@product.Description</h4>
+                <h4 class="product-category">@product.Category!.Name</h4>
+                <div class="tag-container">
+                    @foreach (var tag in product.Tags!)
+                    {
+                        <p class="tag-name">@tag.Name</p>
+                    }
+                </div>
+                <h4 class="product-price">@product.Price $</h4>
+                <div class="actions">
+                    <a asp-action="EditProduct" asp-controller="Product" asp-route-id ="@product.Id" >Edit</a>
+                    <a asp-action="DeleteProduct" asp-route-id="@product.Id" asp-controller="Product">Delete</a>
+                </div>
+            </div>
+        }
+    }
+</div>

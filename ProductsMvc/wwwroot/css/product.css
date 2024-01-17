@@ -1,0 +1,20 @@
+﻿.product-controller {
+    display : grid;
+    grid-template-columns : auto auto auto auto;
+}
+
+.product-card {
+    display : flex;
+    flex-direction : column;
+    gap : 10px;
+    font-family : Bahnschrift;
+    border: 1px solid black;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    padding : 14px;
+    border-radius : 4px;
+}
+
+.tag-container {
+    display : flex;
+    gap : 4px;
+}

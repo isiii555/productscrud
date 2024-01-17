@@ -1,0 +1,46 @@
+﻿.form-container {
+    height : 100%;
+    display : flex;
+    justify-content : center;
+    align-items : center;
+}
+
+.form-container form {
+    display : flex;
+    flex-direction : column;
+    gap : 10px;
+}
+
+.form-container form input {
+    font-size : 18px;
+    padding : 10px;
+    border : 1px solid #B2B2B2;
+    border-radius : 4px;
+}
+
+.form-container form input:focus {
+    outline : none;
+}
+
+.form-container form select {
+    font-size : 18px;
+    border-radius : 4px;
+}
+
+.form-container form select option {
+    padding : 10px;
+}
+
+.form-container form select:focus {
+    outline : none;
+}
+
+.form-container form button {
+    font-size : 18px;
+    border-radius : 4px;
+    padding : 10px;
+    background-color : green;
+    color : white;
+    border : none;
+    cursor : pointer;
+}

@@ -1,0 +1,28 @@
+﻿@{
+    var tags = ViewData["tags"] as List<Tag>;
+    var categories = ViewData["categories"] as List<Category>;
+}
+@model ProductViewModel
+
+<div class="form-container">
+    <form enctype="multipart/form-data" asp-controller="Product" asp-action="AddProduct" method="post">
+            <input type="text" placeholder="name" asp-for="Name" />
+            <span asp-validation-for="Name"></span>
+
+            <input type="text" placeholder="description" asp-for="Description" />
+            <span asp-validation-for="Description"></span>
+
+            <input type="number" placeholder="price" asp-for="Price" />
+            <span asp-validation-for="Price"></span>
+
+            <select asp-for="TagIds" multiple asp-items="new SelectList(tags,nameof(Tag.Id),nameof(Tag.Name))">
+            </select><span asp-validation-for="TagIds"></span>
+
+            <select asp-for="CategoryId" asp-items="new SelectList(categories,nameof(Category.Id),nameof(Category.Name))">
+            </select><span asp-validation-for="CategoryId"></span>
+            <input type="file" placeholder="image" asp-for="Image" />
+            <span asp-validation-for="Image"></span>
+        <button>Add Product</button>
+    </form>
+</div>
+
